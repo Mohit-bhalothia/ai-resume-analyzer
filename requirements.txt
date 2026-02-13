@@ -9,3 +9,4 @@ pydantic-settings
 pdfminer.six
 spacy
 sentence-transformers
+pandas

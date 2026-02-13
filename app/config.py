@@ -17,6 +17,9 @@ class Settings(BaseSettings):
     # File storage
     upload_dir: str = "uploads"
 
+    # Dataset paths (relative to project root by default)
+    training_csv_path: str = "job_dataset.csv"  # Updated to use job_dataset.csv (12,000 jobs)
+    resumes_csv_path: str = "Resume.csv"
     # NLP / models
     spacy_model: str = "en_core_web_sm"
     sentence_transformer_model: str = "sentence-transformers/all-MiniLM-L6-v2"
