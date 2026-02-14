@@ -48,6 +48,7 @@ ai-resume-analyzer/
 ├── Dockerfile
 ├── docker-compose.yml
 ├── DEPLOYMENT.md        # Docker & production notes
+├── AWS_DEPLOYMENT.md    # AWS deploy (App Runner, ECS, EC2)
 └── DATASET_USAGE.md     # Dataset details
 ```
 
@@ -227,6 +228,26 @@ docker run -p 8000:8000 -e ENVIRONMENT=production -e JWT_SECRET_KEY=your-secret 
 | Slow first request | Model loads on startup; wait a few seconds |
 
 See **[DEPLOYMENT.md](DEPLOYMENT.md)** for more details.
+
+---
+
+## AWS Deployment
+
+Deploy to AWS using your Docker image:
+
+| Option | Use case |
+|--------|----------|
+| **App Runner** | Easiest – fully managed, auto-scaling |
+| **ECS Fargate** | Production workloads, scalable |
+| **EC2** | Full control, run Docker on a VM |
+
+**Quick EC2 deploy:**
+```bash
+# On an EC2 instance (t3.medium or larger)
+docker run -d -p 8000:8000 --restart unless-stopped mohitbhalothia007/ai-resume-analyzer:latest
+```
+
+See **[AWS_DEPLOYMENT.md](AWS_DEPLOYMENT.md)** for step-by-step instructions.
 
 ---
 
